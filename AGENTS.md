@@ -35,4 +35,9 @@ Single static page, no client-side JavaScript and no UI framework.
 Import with the `~` alias (`~/components/...`), resolved from `paths` in `tsconfig.json`.
 
 Images in `src/assets/` are optimized at build time by `astro:assets`; only files imported by
-`data.ts` are bundled. Run `pnpm check` before committing.
+`data.ts` are bundled. Keep asset filenames lowercase and match the import to the tracked
+filename exactly: Windows is case-insensitive, so a `.JPG` file imported as `.jpg` builds
+fine locally and then fails the Linux deploy with `[ImageNotFound]`. Check with
+`git ls-files src/assets`, which shows the name git actually stores.
+
+Run `pnpm check` before committing.
