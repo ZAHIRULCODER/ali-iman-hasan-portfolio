@@ -140,8 +140,9 @@ h3.d{font-family:var(--disp);font-weight:400;font-size:40px;line-height:1;letter
   font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--dimmer)}
 .tl-meta .now{color:#A9C2FF}
 .tl-track{display:flex;gap:3px;height:26px;align-items:flex-end}
-.clip{flex:1;height:6px;background:rgba(126,157,224,.14);cursor:pointer;position:relative;transition:height .25s,background .25s}
+.clip{flex:1;height:6px;background:rgba(126,157,224,.14);border:0;padding:0;color:inherit;font:inherit;text-align:center;cursor:pointer;position:relative;transition:height .25s,background .25s}
 .clip:hover{height:14px;background:rgba(126,157,224,.34)}
+.clip:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .clip.done{background:rgba(126,157,224,.26)}
 .clip.cur{height:22px;background:linear-gradient(180deg,var(--blue),var(--violet));box-shadow:0 0 18px rgba(61,123,255,.55)}
 .clip span{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);white-space:nowrap;

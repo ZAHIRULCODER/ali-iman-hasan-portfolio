@@ -26,7 +26,7 @@ import portfolio23 from '../assets/portfolio/portfolio-23.jpg';
 const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, portfolio05, portfolio06, portfolio07, portfolio08, portfolio09, portfolio10, portfolio11, portfolio12, portfolio13, portfolio14, portfolio15, portfolio16, portfolio17, portfolio18, portfolio19, portfolio20, portfolio21, portfolio22, portfolio23];
 ---
 
-<div class="viewport" id="viewport">
+<main class="viewport" id="viewport" aria-label="Ali Iman Hassan portfolio reel">
 <div class="stage" id="stage">
 
   <div class="marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
@@ -242,7 +242,7 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
         </p>
       </div>
       <div class="frame" style="height:286px">
-        <Image src={portfolioImages[0]} alt="Visual and prompt breakdown sheet for the Rakshak Cement film" />
+        <Image src={portfolioImages[0]} loading="eager" alt="Visual and prompt breakdown sheet for the Rakshak Cement film" />
         <div class="cap">Visual &amp; prompt breakdown · scene-by-scene · MP Birla Cement</div>
       </div>
     </div>
@@ -302,9 +302,9 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
       <div>
         <p class="tiny" style="margin-bottom:14px">Script-wise AI film raw shots — parts 01 → 03</p>
         <div style="display:grid;grid-template-columns:1fr;gap:12px">
-          <div class="frame" style="height:180px"><Image src={portfolioImages[1]} alt="Prabhuji Rakhi film raw shots part 1" /><div class="cap">Part 01 · setup — the unimpressed sister, the late brother</div></div>
-          <div class="frame" style="height:180px"><Image src={portfolioImages[2]} alt="Prabhuji Rakhi film raw shots part 2" /><div class="cap">Part 02 · turn — the sweets appear</div></div>
-          <div class="frame" style="height:180px"><Image src={portfolioImages[3]} alt="Prabhuji Rakhi film raw shots part 3" /><div class="cap">Part 03 · resolve — end card</div></div>
+          <div class="frame" style="height:180px"><Image src={portfolioImages[1]} loading="eager" alt="Prabhuji Rakhi film raw shots part 1" /><div class="cap">Part 01 · setup — the unimpressed sister, the late brother</div></div>
+          <div class="frame" style="height:180px"><Image src={portfolioImages[2]} loading="eager" alt="Prabhuji Rakhi film raw shots part 2" /><div class="cap">Part 02 · turn — the sweets appear</div></div>
+          <div class="frame" style="height:180px"><Image src={portfolioImages[3]} loading="eager" alt="Prabhuji Rakhi film raw shots part 3" /><div class="cap">Part 03 · resolve — end card</div></div>
         </div>
       </div>
     </div>
@@ -357,7 +357,7 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
     </div>
     <div class="r" style="margin-top:26px;display:grid;grid-template-columns:1fr 340px;gap:44px;align-items:center">
       <div class="frame" style="height:168px">
-        <Image src={portfolioImages[4]} alt="Instagram feed grid concepts" style="object-position:center" />
+        <Image src={portfolioImages[4]} loading="eager" alt="Instagram feed grid concepts" style="object-position:center" />
         <div class="cap">Feed architecture — grid planned as one composition, not nine posts</div>
       </div>
       <p class="lede" style="font-size:16px">A feed is a layout. Planning the grid as a whole is what makes a profile look designed rather than posted.</p>
@@ -459,8 +459,8 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
         <p class="lede" style="margin-top:26px;font-size:15px">The moodboard is the contract. Once the light, the palette and the distance are agreed, every later frame has something to be judged against — which is how a generated film stays visually consistent.</p>
       </div>
       <div style="display:grid;grid-template-rows:1fr 1fr;gap:12px">
-        <div class="frame" style="height:280px"><Image src={portfolioImages[5]} alt="Visual moodboard for the ZEE5 topical film" /><div class="cap">Visual moodboard — direction locked before production</div></div>
-        <div class="frame" style="height:280px"><Image src={portfolioImages[6]} alt="Commercial video output frames" /><div class="cap">Commercial video output</div></div>
+        <div class="frame" style="height:280px"><Image src={portfolioImages[5]} loading="eager" alt="Visual moodboard for the ZEE5 topical film" /><div class="cap">Visual moodboard — direction locked before production</div></div>
+        <div class="frame" style="height:280px"><Image src={portfolioImages[6]} loading="eager" alt="Commercial video output frames" /><div class="cap">Commercial video output</div></div>
       </div>
     </div>
   </section>
@@ -470,8 +470,8 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
     <div class="eyebrow r">09.2 — SRMB · from our factories to your homes</div>
     <div class="r" style="display:grid;grid-template-columns:1fr 420px;gap:52px;align-items:start">
       <div style="display:grid;grid-template-rows:1fr 1fr;gap:12px">
-        <div class="frame" style="height:272px"><Image src={portfolioImages[7]} alt="SRMB steel manufacturing generated frames" /><div class="cap">AI image generation &amp; visual moodboard — the making of steel</div></div>
-        <div class="frame" style="height:272px"><Image src={portfolioImages[8]} alt="SRMB final output in vertical reel format" /><div class="cap">Final output — recut for the vertical reel format</div></div>
+        <div class="frame" style="height:272px"><Image src={portfolioImages[7]} loading="eager" alt="SRMB steel manufacturing generated frames" /><div class="cap">AI image generation &amp; visual moodboard — the making of steel</div></div>
+        <div class="frame" style="height:272px"><Image src={portfolioImages[8]} loading="eager" alt="SRMB final output in vertical reel format" /><div class="cap">Final output — recut for the vertical reel format</div></div>
       </div>
       <div>
         <h3 class="d">Heat, ore, sparks —<br>then a home.</h3>
@@ -505,8 +505,8 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
         </div>
       </div>
       <div style="display:grid;grid-template-rows:1fr 1fr;gap:12px">
-        <div class="frame" style="height:272px"><Image src={portfolioImages[9]} alt="Rakshak film frames 1 to 3" /><div class="cap">Frames 01 — 03 · dream sequence, reality cut, family moment</div></div>
-        <div class="frame" style="height:272px"><Image src={portfolioImages[10]} alt="Rakshak film frames 4 to 6" /><div class="cap">Frames 04 — 06 · product solution, hero shot, end frame</div></div>
+        <div class="frame" style="height:272px"><Image src={portfolioImages[9]} loading="eager" alt="Rakshak film frames 1 to 3" /><div class="cap">Frames 01 — 03 · dream sequence, reality cut, family moment</div></div>
+        <div class="frame" style="height:272px"><Image src={portfolioImages[10]} loading="eager" alt="Rakshak film frames 4 to 6" /><div class="cap">Frames 04 — 06 · product solution, hero shot, end frame</div></div>
       </div>
     </div>
   </section>
@@ -516,11 +516,11 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
     <div class="eyebrow r">09.4 — Real estate ideas that generated leads</div>
     <div class="r" style="display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start">
       <div>
-        <div class="frame" style="height:300px"><Image src={portfolioImages[11]} alt="Joyville paid ads for ready to move in flats" /><div class="cap">Joyville by Shapoorji Pallonji · paid ads · ready-to-move-in flats, Santragachi</div></div>
+        <div class="frame" style="height:300px"><Image src={portfolioImages[11]} loading="eager" alt="Joyville paid ads for ready to move in flats" /><div class="cap">Joyville by Shapoorji Pallonji · paid ads · ready-to-move-in flats, Santragachi</div></div>
         <p class="lede" style="margin-top:24px;font-size:15px">Three creatives, three different reasons to click: affordability, location, lifestyle. Price and RERA compliance carried without letting the frame turn into a notice board.</p>
       </div>
       <div>
-        <div class="frame" style="height:300px"><Image src={portfolioImages[12]} alt="Landing page wireframe design layout" /><div class="cap">Landing page wireframe — the layout behind the campaign</div></div>
+        <div class="frame" style="height:300px"><Image src={portfolioImages[12]} loading="eager" alt="Landing page wireframe design layout" /><div class="cap">Landing page wireframe — the layout behind the campaign</div></div>
         <p class="lede" style="margin-top:24px;font-size:15px">The ad is only half the job. The wireframe decides what happens after the click — and a project walkthrough film covered the premium amenities of living in the heart of Alipore.</p>
         <p class="tiny" style="margin-top:18px;color:var(--dimmer)">Paid ads · project walkthrough · landing page layout</p>
       </div>
@@ -534,12 +534,12 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
       <div>
         <h3 class="d">A reset to all<br>your chaos this Holi.</h3>
         <p class="lede" style="margin-top:20px;font-size:15px">Everyone posts the colour. The concept goes after what comes after the colour — the drained, over-stimulated hour when the celebration ends. Coftea becomes the pause, not the party.</p>
-        <div class="frame" style="height:250px;margin-top:22px"><Image src={portfolioImages[13]} alt="Coftea Holi campaign frames" /><div class="cap">Frames 02 — 04 · This Holi, find your calm between the colours</div></div>
+        <div class="frame" style="height:250px;margin-top:22px"><Image src={portfolioImages[13]} loading="eager" alt="Coftea Holi campaign frames" /><div class="cap">Frames 02 — 04 · This Holi, find your calm between the colours</div></div>
       </div>
       <div>
         <h3 class="d">Because every day deserves<br>a moment of calm.</h3>
         <p class="lede" style="margin-top:20px;font-size:15px">A Mother's Day film written as four lines of restraint — she never asks for anything, but somehow she gives everything, in the smallest things, in the quietest moments. Unspoken but never unseen.</p>
-        <div class="frame" style="height:250px;margin-top:22px"><Image src={portfolioImages[14]} alt="Coftea Mother's Day campaign frames" /><div class="cap">Mother's Day · frame-wise story build</div></div>
+        <div class="frame" style="height:250px;margin-top:22px"><Image src={portfolioImages[14]} loading="eager" alt="Coftea Mother's Day campaign frames" /><div class="cap">Mother's Day · frame-wise story build</div></div>
       </div>
     </div>
     <p class="tiny r" style="margin-top:26px;color:var(--dimmer)">Also for Coftea: social creatives, branding and packaging design — premixes, instant lemon tea, premium coffee.</p>
@@ -553,12 +553,12 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
       <p class="lede" style="max-width:520px;font-size:15px">Social post design, video editing, print collateral, packaging and on-site signage — held to one visual identity across the calendar, festival by festival.</p>
     </div>
     <div class="r" style="margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
-      <div class="frame" style="height:212px"><Image src={portfolioImages[15]} alt="The Biryani Canteen social media work" /><div class="cap">The Biryani Canteen · posts, reels, menus</div></div>
-      <div class="frame" style="height:212px"><Image src={portfolioImages[16]} alt="Cafe Offbeat and Up There rooftop social work" /><div class="cap">Café Offbeat &amp; Up There · warm-toned posts, moody reels</div></div>
-      <div class="frame" style="height:212px"><Image src={portfolioImages[17]} alt="Uncle Peter's Pancakes social work" /><div class="cap">Uncle Peter's Pancakes · creatives &amp; food reels</div></div>
-      <div class="frame" style="height:212px"><Image src={portfolioImages[18]} alt="Jhore Jole Jongole eco resort social work" /><div class="cap">Jhore Jole Jongole · eco-resort, Bengali-first copy</div></div>
-      <div class="frame" style="height:212px"><Image src={portfolioImages[19]} alt="Acumen Electronics social work" /><div class="cap">Acumen Electronics · product &amp; festive creatives</div></div>
-      <div class="frame" style="height:212px"><Image src={portfolioImages[20]} alt="Coftea social and packaging work" /><div class="cap">Coftea · social, branding, packaging</div></div>
+      <div class="frame" style="height:212px"><Image src={portfolioImages[15]} loading="eager" alt="The Biryani Canteen social media work" /><div class="cap">The Biryani Canteen · posts, reels, menus</div></div>
+      <div class="frame" style="height:212px"><Image src={portfolioImages[16]} loading="eager" alt="Cafe Offbeat and Up There rooftop social work" /><div class="cap">Café Offbeat &amp; Up There · warm-toned posts, moody reels</div></div>
+      <div class="frame" style="height:212px"><Image src={portfolioImages[17]} loading="eager" alt="Uncle Peter's Pancakes social work" /><div class="cap">Uncle Peter's Pancakes · creatives &amp; food reels</div></div>
+      <div class="frame" style="height:212px"><Image src={portfolioImages[18]} loading="eager" alt="Jhore Jole Jongole eco resort social work" /><div class="cap">Jhore Jole Jongole · eco-resort, Bengali-first copy</div></div>
+      <div class="frame" style="height:212px"><Image src={portfolioImages[19]} loading="eager" alt="Acumen Electronics social work" /><div class="cap">Acumen Electronics · product &amp; festive creatives</div></div>
+      <div class="frame" style="height:212px"><Image src={portfolioImages[20]} loading="eager" alt="Coftea social and packaging work" /><div class="cap">Coftea · social, branding, packaging</div></div>
     </div>
   </section>
 
@@ -574,8 +574,8 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
         <div class="k">Step 01</div><div class="v" style="font-size:18px">Prompt</div>
         <p style="margin-top:14px;font-family:var(--mono);font-size:11px;line-height:1.85;color:var(--dim)">Scene written as copy, then as camera: distance, lens feel, light, mood, era, palette.</p>
       </div>
-      <div class="frame" style="border:0"><Image src={portfolioImages[21]} alt="Generation pass one" /><div class="cap">Generation 01 · blocking, cast, environment</div></div>
-      <div class="frame" style="border:0"><Image src={portfolioImages[22]} alt="Generation pass two" /><div class="cap">Generation 02 · corrected light, product accuracy, continuity</div></div>
+      <div class="frame" style="border:0"><Image src={portfolioImages[21]} loading="eager" alt="Generation pass one" /><div class="cap">Generation 01 · blocking, cast, environment</div></div>
+      <div class="frame" style="border:0"><Image src={portfolioImages[22]} loading="eager" alt="Generation pass two" /><div class="cap">Generation 02 · corrected light, product accuracy, continuity</div></div>
       <div class="node act" style="border:0;padding:24px 22px">
         <div class="k">Step 04</div><div class="v" style="font-size:18px">Final frame</div>
         <p style="margin-top:14px;font-family:var(--mono);font-size:11px;line-height:1.85;color:var(--dim)">Selected, colour-matched to the moodboard, cut into the film.</p>
@@ -696,24 +696,24 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
   </section>
 
   <!-- chrome -->
-  <div class="nav">
-    <button id="prev" aria-label="Previous slide">←</button>
-    <button id="next" aria-label="Next slide">→</button>
-  </div>
+  <nav class="nav" aria-label="Slide navigation">
+    <button id="prev" type="button" aria-label="Previous slide">←</button>
+    <button id="next" type="button" aria-label="Next slide">→</button>
+  </nav>
 
-  <div class="timeline">
+  <nav class="timeline" aria-label="Portfolio timeline">
     <div class="tl-meta">
       <span>Timeline — <span class="now" id="chapterName">Opening</span></span>
       <span><span id="idx">01</span> / <span id="total">22</span></span>
     </div>
     <div class="tl-track" id="track"></div>
-  </div>
+  </nav>
 
   <div class="scan"></div>
   <div class="vignette"></div>
   <div class="grain"></div>
 </div>
-</div>
+</main>
 <div class="hintbar" id="hintbar">← → or click the timeline to move through the reel</div>
 
 <script>
@@ -731,14 +731,22 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
   var mobileMedia = window.matchMedia('(max-width:720px)');
 
   function pad(n: number): string { const value = String(n); return value.length < 2 ? '0'+value : value; }
+  slides.forEach(function(s, i){
+    var isCurrent = i === 0;
+    s.hidden = !isCurrent;
+    s.setAttribute('aria-hidden', isCurrent ? 'false' : 'true');
+  });
   totalEl.textContent = pad(slides.length);
 
   // build timeline clips
   slides.forEach(function(s,i){
-    var c = document.createElement('div');
+    var c = document.createElement('button');
+    c.type = 'button';
     c.className = 'clip';
     var label = document.createElement('span');
-    label.textContent = pad(i+1)+' · '+(s.getAttribute('data-label')||'');
+    var clipLabel = pad(i+1)+' · '+(s.getAttribute('data-label')||'');
+    label.textContent = clipLabel;
+    c.setAttribute('aria-label', 'Go to '+clipLabel);
     c.appendChild(label);
     c.addEventListener('click', function(){ go(i); });
     track.appendChild(c);
@@ -767,8 +775,12 @@ const portfolioImages = [portfolio01, portfolio02, portfolio03, portfolio04, por
     if(i<0) i=0;
     if(i>slides.length-1) i=slides.length-1;
     slides[cur].classList.remove('on');
+    slides[cur].hidden = true;
+    slides[cur].setAttribute('aria-hidden', 'true');
     cur = i;
+    slides[cur].hidden = false;
     slides[cur].classList.add('on');
+    slides[cur].setAttribute('aria-hidden', 'false');
     slides[cur].scrollTop = 0;
     syncMobileChrome();
     clips.forEach(function(c,n){
