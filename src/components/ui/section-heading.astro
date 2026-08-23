@@ -1,0 +1,29 @@
+---
+import Eyebrow from "~/components/ui/eyebrow.astro";
+
+// Eyebrow + display heading + optional lede, each on the full measure and
+// aligned to the same left edge. The heading needs the full width because at
+// display sizes a half-width column forces four-word headlines into three
+// ragged lines; the lede follows it rather than sitting in a right-hand column,
+// which left a dead gap beside every intro paragraph.
+interface Props {
+   index?: string;
+   eyebrow: string;
+   id?: string;
+   lede?: string;
+   size?: "lg" | "xl";
+}
+
+const { index, eyebrow, id, lede, size = "lg" } = Astro.props;
+---
+
+<Eyebrow index={index}>{eyebrow}</Eyebrow>
+
+<h2
+   id={id}
+   class:list={["mt-stack", size === "xl" ? "text-display-xl" : "text-display-lg"]}
+>
+   <slot />
+</h2>
+
+{lede && <p class="mt-stack text-lede text-muted">{lede}</p>}

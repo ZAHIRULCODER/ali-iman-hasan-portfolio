@@ -1,15 +1,214 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Design tokens. Everything the page renders comes from here — no section
+   should introduce a raw hex value, a one-off font size, or a magic margin.
+   ========================================================================== */
 @theme {
-	--color-void: #0b0c0c;
-	--color-void-soft: #111313;
-	--color-ink: #f2f0e8;
-	--color-muted: #989d98;
-	--color-faint: #5e6561;
-	--color-line: rgba(242, 240, 232, 0.14);
-	--color-line-soft: rgba(242, 240, 232, 0.08);
-	--color-acid: #4A90D9;
-	--font-display: "Arial Narrow", Arial, sans-serif;
-	--font-body: Arial, "Helvetica Neue", sans-serif;
-	--font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+	/* --- Surfaces -------------------------------------------------------
+	   A near-black with a trace of blue so it reads cool rather than muddy.
+	   `surface` steps get lighter as the number goes up. */
+	--color-void: #0a0b0d;
+	--color-surface: #101216;
+	--color-surface-2: #171a1f;
+
+	/* --- Foreground ----------------------------------------------------- */
+	--color-ink: #f1f0ec;
+	--color-muted: #9aa1a8;
+	--color-faint: #6b727a;
+
+	/* --- Rules ----------------------------------------------------------
+	   `line` for structural dividers, `line-soft` for decorative ones.
+	   These two are the only borders in the system. */
+	--color-line: rgba(241, 240, 236, 0.12);
+	--color-line-soft: rgba(241, 240, 236, 0.06);
+
+	/* --- Accent ---------------------------------------------------------
+	   7.3:1 on --color-void, so it stays AA at the 12px label size that
+	   carries most of it. `dim` is for hovers and accent-tinted borders. */
+	--color-accent: #5aa2f0;
+	--color-accent-dim: #3d7fc4;
+
+	/* --- Families -------------------------------------------------------
+	   Archivo carries a width axis, which is what gives the headlines their
+	   presence; Inter sets text; JetBrains Mono sets every label.
+	   Each resolves to a stack Astro builds in astro.config.mjs: the real face,
+	   then a metric-matched fallback, then the plain system fallbacks. */
+	--font-display: var(--font-archivo);
+	--font-body: var(--font-inter);
+	--font-mono: var(--font-jetbrains-mono);
+
+	/* --- Type scale -----------------------------------------------------
+	   Every step clamps, so sections carry ONE size class and never a
+	   responsive variant. Line height and tracking travel with the size. */
+	--text-display-xl: clamp(3.25rem, 8.5vw, 7.5rem);
+	--text-display-xl--line-height: 0.86;
+	--text-display-xl--letter-spacing: -0.025em;
+
+	--text-display-lg: clamp(2.5rem, 6vw, 5rem);
+	--text-display-lg--line-height: 0.88;
+	--text-display-lg--letter-spacing: -0.022em;
+
+	--text-display-md: clamp(1.875rem, 3vw, 3rem);
+	--text-display-md--line-height: 0.95;
+	--text-display-md--letter-spacing: -0.018em;
+
+	--text-display-sm: clamp(1.375rem, 1.9vw, 1.75rem);
+	--text-display-sm--line-height: 1;
+	--text-display-sm--letter-spacing: -0.012em;
+
+	--text-stat: clamp(2.5rem, 4.5vw, 4rem);
+	--text-stat--line-height: 0.85;
+	--text-stat--letter-spacing: -0.03em;
+
+	--text-lede: clamp(1.0625rem, 1.15vw, 1.25rem);
+	--text-lede--line-height: 1.6;
+
+	--text-quote: clamp(1.125rem, 1.6vw, 1.5rem);
+	--text-quote--line-height: 1.45;
+	--text-quote--letter-spacing: -0.01em;
+
+	--text-body: 0.9375rem;
+	--text-body--line-height: 1.65;
+
+	--text-label: 0.6875rem;
+	--text-label--line-height: 1.35;
+	--text-label--letter-spacing: 0.14em;
+
+	/* --- Container ------------------------------------------------------- */
+	--container-shell: 80rem;
+
+	/* --- Spacing rhythm --------------------------------------------------
+	   Four names replace the old ad-hoc mt-5/7/8/9/10/11/14/20 spread. */
+	--spacing-gutter: clamp(1.25rem, 4vw, 3rem);
+	--spacing-section: clamp(5.5rem, 11vw, 10rem);
+	--spacing-block: clamp(2.5rem, 5vw, 4.5rem);
+	--spacing-stack: clamp(1.5rem, 2.5vw, 2.25rem);
+
+	/* --- Motion ----------------------------------------------------------
+	   One easing curve and three durations. Tailwind v4 has no --duration-*
+	   theme namespace, so the curve and the base duration are installed as
+	   the framework DEFAULTS instead: a bare `transition` is already the
+	   house style, and only the two off-default speeds need a utility. */
+	--ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+	--default-transition-duration: 320ms;
+	--default-transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================================
+   Base. Headings and labels get their treatment here rather than repeating
+   `font-display font-semibold uppercase leading-none tracking-normal` on
+   every element — sections now only ever set a size.
+   ========================================================================== */
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	body {
+		background-color: var(--color-void);
+		color: var(--color-ink);
+		font-family: var(--font-body);
+		font-size: var(--text-body);
+		line-height: var(--text-body--line-height);
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+	/* `.font-display` is included so non-heading display text — the stat
+	   numerals, the flow-nav labels — gets the same treatment as a heading
+	   without restating four classes at each call site. */
+	h1,
+	h2,
+	h3,
+	.font-display {
+		font-family: var(--font-display);
+		/* The width axis is what separates the display face from the body
+		   face. Without it Archivo reads as just another grotesque. */
+		font-stretch: 112%;
+		font-weight: 700;
+		text-transform: uppercase;
+		text-wrap: balance;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 3px;
+	}
+
+	::selection {
+		background-color: var(--color-accent);
+		color: var(--color-void);
+	}
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+/* The page's one container: max width, fluid gutter, and the hairline edges
+   that give the layout its grid. Replaces `mx-auto w-full max-w-7xl px-5
+   lg:px-12` repeated on every section. */
+@utility shell {
+	margin-inline: auto;
+	width: 100%;
+	max-width: var(--container-shell);
+	padding-inline: var(--spacing-gutter);
+}
+
+/* The same container box WITHOUT the gutter. For grids whose cells carry their
+   own padding, so a cell background or hover fill reaches the container edge
+   instead of stopping a gutter short of it while the rules run past it. */
+@utility shell-flush {
+	margin-inline: auto;
+	width: 100%;
+	max-width: var(--container-shell);
+}
+
+/* Small uppercase mono label — eyebrows, captions, tags, nav. */
+@utility label {
+	font-family: var(--font-mono);
+	font-size: var(--text-label);
+	line-height: var(--text-label--line-height);
+	letter-spacing: var(--text-label--letter-spacing);
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+@utility duration-slow {
+	transition-duration: 640ms;
+}
+
+/* Fades a horizontally scrolling strip out at both edges. */
+@utility edge-fade {
+	--fade: 6%;
+	-webkit-mask-image: linear-gradient(
+		to right,
+		transparent,
+		#000 var(--fade),
+		#000 calc(100% - var(--fade)),
+		transparent
+	);
+	mask-image: linear-gradient(
+		to right,
+		transparent,
+		#000 var(--fade),
+		#000 calc(100% - var(--fade)),
+		transparent
+	);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
 }

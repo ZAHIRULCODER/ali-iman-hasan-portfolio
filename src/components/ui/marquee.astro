@@ -1,0 +1,62 @@
+---
+// Shared by the brand strip and the work carousel, which previously carried
+// two near-identical copies of this CSS with different durations and easings.
+interface Props {
+   duration?: number;
+   reverse?: boolean;
+   gap?: string;
+   fade?: string;
+   class?: string;
+}
+
+const {
+   duration = 60,
+   reverse = false,
+   gap = "1rem",
+   fade = "6%",
+   class: className = "",
+} = Astro.props;
+---
+
+<div class="marquee edge-fade" style={`--fade:${fade}`}>
+   <div
+      class:list={["marquee-track flex w-max", className]}
+      style={`--duration:${duration}s;--gap:${gap};animation-direction:${reverse ? "reverse" : "normal"}`}
+   >
+      <slot />
+   </div>
+</div>
+
+<style>
+   .marquee {
+      overflow: hidden;
+   }
+
+   .marquee-track {
+      gap: var(--gap);
+      padding-inline: calc(var(--gap) / 2);
+      animation: marquee-scroll var(--duration) linear infinite;
+   }
+
+   .marquee:hover .marquee-track,
+   .marquee:focus-within .marquee-track {
+      animation-play-state: paused;
+   }
+
+   @keyframes marquee-scroll {
+      from {
+         transform: translate3d(0, 0, 0);
+      }
+      to {
+         transform: translate3d(calc(-50% - var(--gap) / 2), 0, 0);
+      }
+   }
+
+   /* With motion off the track is frozen at its start, so the second copy is
+      unreachable — hand scrolling back to the user instead. */
+   @media (prefers-reduced-motion: reduce) {
+      .marquee {
+         overflow-x: auto;
+      }
+   }
+</style>

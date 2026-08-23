@@ -1,0 +1,22 @@
+---
+// The section marker that used to be hand-rolled six times with drifting
+// variants (● vs 01 vs ↘, gap-2 vs gap-3). One component, one shape.
+interface Props {
+   index?: string;
+   class?: string;
+}
+
+const { index, class: className = "" } = Astro.props;
+---
+
+<p class={`label flex items-center gap-3 text-faint ${className}`}>
+   {
+      index ? (
+         <span class="text-accent">{index}</span>
+      ) : (
+         <span class="size-1.5 shrink-0 bg-accent" />
+      )
+   }
+   <span class="h-px w-7 shrink-0 bg-accent"></span>
+   <slot />
+</p>

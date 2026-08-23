@@ -1,0 +1,27 @@
+---
+// Text arrows (↗ ↘) fall outside the latin subset Google Fonts serves, so they
+// render in a fallback face and sit off-baseline. Drawing them keeps the
+// weight and size consistent with the label they follow.
+interface Props {
+   dir?: "up-right" | "down-right" | "right";
+   class?: string;
+}
+
+const { dir = "up-right", class: className = "" } = Astro.props;
+
+const rotation = { "up-right": 0, right: 45, "down-right": 90 }[dir];
+---
+
+<svg
+   class={`size-[1em] shrink-0 ${className}`}
+   style={`rotate:${rotation}deg`}
+   viewBox="0 0 16 16"
+   fill="none"
+   stroke="currentColor"
+   stroke-width="1.75"
+   stroke-linecap="square"
+   aria-hidden="true"
+>
+   <path d="M4.5 11.5 11.5 4.5" />
+   <path d="M5.5 4.5h6v6" />
+</svg>

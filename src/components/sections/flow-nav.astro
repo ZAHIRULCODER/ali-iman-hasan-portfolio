@@ -1,28 +1,21 @@
 ---
+import Arrow from "~/components/ui/arrow.astro";
 import { flowLinks } from "~/components/sections/data";
 ---
 
-<section
-   class="mx-auto grid w-full max-w-7xl border-b border-line px-5 py-8 lg:grid-cols-5 lg:px-12"
-   aria-label="Page flow"
->
-   <div
-      class="mb-5 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-faint lg:col-span-1 lg:mb-0"
-   >
-      <span class="text-acid">↘</span>Navigate the work
-   </div>
+<section aria-label="Page flow">
    <nav
-      class="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:col-span-4"
+      class="shell-flush grid grid-cols-2 border-b border-line sm:grid-cols-4"
       aria-label="Section navigation"
    >
       {
-         flowLinks.map((link) => (
-            <a
-               class="group border-t border-line pt-3 transition-colors hover:border-acid"
-               href={link.href}
-            >
-               <span aria-hidden="true" class="font-mono text-lg leading-none text-acid transition-transform group-hover:translate-x-1">↗</span>
-               <span class="mt-2 block font-display text-2xl font-semibold uppercase leading-none text-ink transition-colors group-hover:text-acid">
+         flowLinks.map((link, index) => (
+            <a class="flow-cell group flex flex-col gap-6 py-6 transition-colors hover:bg-surface sm:py-8" href={link.href}>
+               <span class="label flex items-center justify-between text-faint">
+                  {String(index + 1).padStart(2, "0")}
+                  <Arrow class="text-accent transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+               </span>
+               <span class="text-display-sm font-display text-ink transition-colors group-hover:text-accent">
                   {link.label}
                </span>
             </a>
@@ -30,3 +23,49 @@ import { flowLinks } from "~/components/sections/data";
       }
    </nav>
 </section>
+
+<style>
+   /* The cells own their horizontal padding rather than inheriting it from a
+      padded container, so the hover fill runs all the way to the container
+      edge — matching the rules above and below the row. The edge cells take
+      the full gutter, which keeps their text on the page's left/right margin.
+      Written as CSS because the column edge changes at the breakpoint, which
+      is unreadable as stacked Tailwind nth-child variants. */
+   .flow-cell {
+      padding-inline: 1.25rem;
+   }
+
+   /* Two columns: every odd cell is on the left edge, every even one the right. */
+   .flow-cell:nth-child(2n + 1) {
+      padding-left: var(--spacing-gutter);
+   }
+
+   .flow-cell:nth-child(2n) {
+      padding-right: var(--spacing-gutter);
+      border-left: 1px solid var(--color-line-soft);
+   }
+
+   @media (min-width: 640px) {
+      /* Four columns: only the true first and last cells touch the edge. */
+      .flow-cell:nth-child(2n + 1) {
+         padding-left: 1.25rem;
+      }
+
+      .flow-cell:nth-child(2n) {
+         padding-right: 1.25rem;
+      }
+
+      .flow-cell:not(:first-child) {
+         border-left: 1px solid var(--color-line-soft);
+      }
+
+      .flow-cell:first-child {
+         padding-left: var(--spacing-gutter);
+         border-left: 0;
+      }
+
+      .flow-cell:last-child {
+         padding-right: var(--spacing-gutter);
+      }
+   }
+</style>

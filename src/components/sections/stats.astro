@@ -2,25 +2,22 @@
 import { stats } from "~/components/sections/data";
 ---
 
-<section
-   class="mx-auto grid w-full max-w-7xl grid-cols-2 border-y border-line px-5 lg:grid-cols-5 lg:px-12"
-   aria-label="Career highlights"
->
-   <div
-      class="col-span-2 flex items-start gap-2 px-0 py-4 font-mono text-xs uppercase tracking-widest text-faint lg:col-span-1 lg:min-h-32 lg:p-6"
-   >
-      <span class="text-acid">●</span>Selected proof
+<section aria-label="Career highlights">
+   <div class="shell grid grid-cols-2 border-y border-line lg:grid-cols-5">
+      <div
+         class="label col-span-2 flex items-center gap-3 py-5 text-faint lg:col-span-1 lg:py-8 lg:pr-6"
+      >
+         <span class="size-1.5 shrink-0 bg-accent"></span>Selected proof
+      </div>
+      {
+         stats.map((stat) => (
+            <div class="flex min-h-28 flex-col justify-between gap-6 border-t border-line py-5 pr-4 lg:min-h-36 lg:border-l lg:border-t-0 lg:py-8 lg:pl-6">
+               <strong class="text-stat font-display font-medium text-ink">
+                  {stat.value}
+               </strong>
+               <span class="label text-muted">{stat.label}</span>
+            </div>
+         ))
+      }
    </div>
-   {
-      stats.map((stat) => (
-         <div class="flex min-h-24 flex-col justify-between border-t border-line px-3 py-5 sm:px-5 lg:min-h-32 lg:border-l lg:border-t-0 lg:p-6">
-            <strong class="font-display text-5xl font-normal leading-none text-ink sm:text-6xl">
-               {stat.value}
-            </strong>
-            <span class="font-mono text-xs uppercase tracking-wide text-muted">
-               {stat.label}
-            </span>
-         </div>
-      ))
-   }
 </section>
