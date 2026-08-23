@@ -114,7 +114,7 @@ export const featuredFilms = [
 
 export const stats = [
 	{ value: "41+", label: "clients handled" },
-	{ value: "87+", label: "projects shipped" },
+	{ value: "87+", label: "projects worked on" },
 	{ value: "131+", label: "scripts & assets written" },
 	{ value: "3+", label: "years in the work" },
 ];
