@@ -25,9 +25,11 @@ Consult these guides before working on related tasks:
 
 Single static page, no client-side JavaScript and no UI framework.
 
-- `src/pages/index.astro` — the only route; renders `Home.astro` inside `Layout.astro`.
-- `src/components/Home.astro` — section order for the page.
+- `src/pages/index.astro` — the only route; renders `home.astro` inside `layout.astro`.
+- `src/components/home.astro` — section order for the page.
 - `src/components/sections/` — one component per section, plus `data.ts`.
+  Filenames are kebab-case (`flow-nav.astro`); the imported identifier stays PascalCase
+  (`FlowNav`), which Astro requires for components used in a template.
 - `src/components/sections/data.ts` — **all page copy and asset imports live here.** Edit content
   here rather than hardcoding it into a section.
 - `src/styles/global.css` — Tailwind v4 `@theme` tokens (colors, fonts). No config file.
