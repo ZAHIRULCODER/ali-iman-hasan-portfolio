@@ -1,46 +1,159 @@
-# Astro Starter Kit: Basics
+# Ali Iman Hassan — AI Creative Portfolio
+
+An Astro-powered, dark-mode-only portfolio for Ali Iman Hassan, an AI strategist, content manager, and filmmaker. The site uses Astro components, Tailwind CSS utilities, optimized local image assets, and system font stacks with no external font requests.
+
+## Requirements
+
+- Node.js `22.12` or newer
+- pnpm
+
+Check your installed versions:
 
 ```sh
-pnpm create astro@latest -- --template basics
+node --version
+pnpm --version
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Run locally
 
-## 🚀 Project Structure
+From the project root:
 
-Inside of your Astro project, you'll see the following folders and files:
+```sh
+pnpm install
+pnpm dev
+```
+
+Open [http://localhost:4321](http://localhost:4321) in your browser.
+
+For a background development server, use:
+
+```sh
+pnpm astro dev --background
+```
+
+Manage the background server with:
+
+```sh
+pnpm astro dev status
+pnpm astro dev logs
+pnpm astro dev stop
+```
+
+## Commands
+
+| Command | Description |
+| --- | --- |
+| `pnpm install` | Install project dependencies. |
+| `pnpm dev` | Start the local Astro development server. |
+| `pnpm astro dev --background` | Start the development server in the background. |
+| `pnpm astro check` | Run Astro and TypeScript diagnostics. |
+| `pnpm build` | Create the optimized static site in `dist/`. |
+| `pnpm preview` | Preview the production build locally. Run `pnpm build` first. |
+| `pnpm astro -- --help` | Show available Astro CLI commands. |
+
+## Production verification
+
+Run the project checks before deploying:
+
+```sh
+pnpm astro check
+pnpm build
+pnpm preview
+```
+
+The production output is generated in `dist/` and can be deployed to any static hosting provider.
+
+## Project structure
 
 ```text
 /
 ├── public/
+│   ├── favicon.ico
 │   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── src/
+│   ├── assets/
+│   │   ├── astro.svg
+│   │   ├── background.svg
+│   │   └── portfolio/
+│   ├── components/
+│   │   ├── Home.astro
+│   │   └── sections/
+│   │       ├── Contact.astro
+│   │       ├── FlowNav.astro
+│   │       ├── Header.astro
+│   │       ├── Hero.astro
+│   │       ├── Principles.astro
+│   │       ├── Statement.astro
+│   │       ├── Stats.astro
+│   │       ├── System.astro
+│   │       ├── Work.astro
+│   │       └── data.ts
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   └── index.astro
+│   └── styles/
+│       └── global.css
+├── astro.config.mjs
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Updating content
 
-## 🧞 Commands
+Most portfolio content is maintained in:
 
-All commands are run from the root of the project, from a terminal:
+```text
+src/components/sections/data.ts
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+Update this file to change:
 
-## 👀 Want to learn more?
+- Selected work projects
+- Project images, descriptions, tags, and accessibility alt text
+- Career statistics
+- Workflow steps
+- Working principles
+- Toolchain names
+- The hero image
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Add new portfolio images to `src/assets/portfolio/` and import them in `data.ts`. Images used with Astro's `Image` component are optimized during the build.
+
+## Design system conventions
+
+- Dark mode only.
+- Styling uses Tailwind CSS utilities.
+- Theme colors and font stacks live in `src/styles/global.css` under `@theme`.
+- Custom font network requests are not used. The site uses stable system font stacks.
+- Use the `~` alias for imports from `src`, for example:
+
+  ```ts
+  import Hero from "~/components/sections/Hero.astro";
+  ```
+
+- Use double quotes in JavaScript, TypeScript, Astro, and configuration files.
+- Keep component and function names descriptive and avoid portfolio-specific prefixes.
+- Reuse existing Tailwind spacing, sizing, color, and typography utilities instead of adding arbitrary CSS values.
+
+## Accessibility and performance
+
+- Use descriptive `alt` text for meaningful images.
+- Keep the skip link and semantic landmarks intact.
+- Keep headings in a logical hierarchy.
+- The hero image is prioritized for the initial viewport.
+- Work images use lazy loading and asynchronous decoding because they are below the fold.
+- Run `pnpm astro check` after structural or component changes.
+
+## Configuration
+
+- `astro.config.mjs` enables Tailwind CSS through the Vite plugin and configures the `~` import alias.
+- `tsconfig.json` defines the same `~/*` path alias for TypeScript and editor support.
+- `src/layouts/Layout.astro` defines document metadata, the dark color scheme, favicon links, and global styles.
+
+## Documentation
+
+- [Astro documentation](https://docs.astro.build)
+- [Astro project structure](https://docs.astro.build/en/basics/project-structure/)
+- [Astro components](https://docs.astro.build/en/basics/astro-components/)
+- [Astro styling](https://docs.astro.build/en/guides/styling/)
