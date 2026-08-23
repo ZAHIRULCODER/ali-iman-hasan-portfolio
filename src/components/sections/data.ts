@@ -111,14 +111,19 @@ export const workflow = [
 	{ step: "04", title: "Ship the system", body: "Cut, write, adapt, publish, and read the response until the idea gets sharper." },
 ];
 
+export const flowLinks = [
+	{ href: "#statement", label: "Point of view" },
+	{ href: "#work", label: "Selected work" },
+	{ href: "#system", label: "The system" },
+	{ href: "#contact", label: "Start here" },
+];
+
 export const principles = [
 	"Start with the audience, not the format.",
 	"Use AI for range. Use taste for selection.",
 	"Build the idea so it can travel across every surface.",
 	"Leave room for the work to surprise you.",
 ];
-
-export const tools = ["ChatGPT", "Gemini", "Midjourney", "Canva", "Flow AI", "VEED.IO", "ElevenLabs", "Adobe Photoshop"];
 
 export const brands = [
 	{ name: "MP Birla Cement", logo: birlaCement },
@@ -144,7 +149,9 @@ export const brands = [
 	{ name: "Viceroy", logo: viceroy },
 ];
 
-export const toolLogos = [
+// One list drives both the logo grid and the "Current toolchain" line.
+// `logo: null` means the tool is named in the text list but has no mark.
+export const tools = [
 	{ name: "ChatGPT", logo: chatgptTool },
 	{ name: "Gemini", logo: geminiTool },
 	{ name: "Google AI Studio", logo: googleAiStudioTool },
@@ -152,5 +159,6 @@ export const toolLogos = [
 	{ name: "Flow AI", logo: flowAiTool },
 	{ name: "VEED.IO", logo: veedTool },
 	{ name: "ElevenLabs", logo: elevenlabsTool },
-	{ name: "Adobe", logo: adobeTool },
+	{ name: "Adobe Photoshop", logo: adobeTool },
+	{ name: "Canva", logo: null },
 ];

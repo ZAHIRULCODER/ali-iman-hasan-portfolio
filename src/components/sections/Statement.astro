@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { toolLogos } from "~/components/sections/data";
+import { tools } from "~/components/sections/data";
 ---
 
 <section
@@ -28,20 +28,23 @@ import { toolLogos } from "~/components/sections/data";
             aria-label="Tools I work with"
          >
             {
-               toolLogos.map((tool) => (
-                  <li class="group flex aspect-3/2 items-center justify-center border-b border-r border-line-soft px-4 py-3 transition-colors duration-300 hover:bg-void-soft">
-                     <Image
-                        src={tool.logo}
-                        alt={`${tool.name} logo`}
-                        width={320}
-                        height={229}
-                        densities={[1, 2]}
-                        loading="lazy"
-                        decoding="async"
-                        class="tool-logo h-full w-full scale-110 object-contain opacity-75 transition-all duration-500 ease-out group-hover:scale-115 group-hover:opacity-100"
-                     />
-                  </li>
-               ))
+               tools.map(
+                  (tool) =>
+                     tool.logo && (
+                        <li class="group flex aspect-3/2 items-center justify-center border-b border-r border-line-soft px-4 py-3 transition-colors duration-300 hover:bg-void-soft">
+                           <Image
+                              src={tool.logo}
+                              alt={`${tool.name} logo`}
+                              width={320}
+                              height={213}
+                              densities={[1, 2]}
+                              loading="lazy"
+                              decoding="async"
+                              class="tool-logo h-full w-full scale-110 object-contain opacity-75 transition-all duration-500 ease-out group-hover:scale-115 group-hover:opacity-100"
+                           />
+                        </li>
+                     ),
+               )
             }
          </ul>
          <p class="text-lg leading-relaxed text-muted">
@@ -51,7 +54,7 @@ import { toolLogos } from "~/components/sections/data";
          </p><div
             class="mt-9 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-faint"
          >
-            <span class="h-px w-8 bg-ember"></span>Think / direct / make / learn
+            <span class="h-px w-8 bg-acid"></span>Think / direct / make / learn
          </div>
       </div>
    </div>
