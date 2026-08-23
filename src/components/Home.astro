@@ -1,0 +1,23 @@
+---
+import Contact from "~/components/sections/Contact.astro";
+import Header from "~/components/sections/Header.astro";
+import Hero from "~/components/sections/Hero.astro";
+import Principles from "~/components/sections/Principles.astro";
+import Statement from "~/components/sections/Statement.astro";
+import Stats from "~/components/sections/Stats.astro";
+import System from "~/components/sections/System.astro";
+import Work from "~/components/sections/Work.astro";
+---
+
+<main class="relative isolate overflow-clip bg-void">
+	<a class="fixed left-3 top-3 z-50 -translate-y-40 bg-acid px-4 py-3 font-mono text-xs font-medium uppercase tracking-widest text-void transition-transform focus:translate-y-0" href="#work">Skip to selected work</a>
+	<Header />
+	<Hero />
+	<Stats />
+	<Statement />
+	<Work />
+	<System />
+	<Principles />
+	<Contact />
+</main>
+
