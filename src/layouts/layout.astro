@@ -1,4 +1,6 @@
 ---
+import { Font } from "astro:assets";
+
 import "../styles/global.css";
 
 const title = "Ali Iman Hassan — AI Creative Portfolio";
@@ -7,21 +9,27 @@ const description =
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth bg-void">
+<html lang="en" class="bg-void">
    <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="description" content={description} />
-      <meta name="theme-color" content="#0b0c0c" />
+      <meta name="theme-color" content="#0a0b0d" />
       <meta name="color-scheme" content="dark" />
+
+      {/* Self-hosted and preloaded. All three are used above the fold — the
+          display face and body copy in the hero, the mono face in the header
+          nav — so all three are worth the early request. */}
+      <Font cssVariable="--font-archivo" preload />
+      <Font cssVariable="--font-inter" preload />
+      <Font cssVariable="--font-jetbrains-mono" preload />
+
       <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <link rel="icon" href="/favicon.ico" />
       <meta name="generator" content={Astro.generator} />
       <title>{title}</title>
    </head>
-   <body
-      class="min-h-screen bg-void font-body text-ink selection:bg-acid selection:text-void"
-   >
+   <body class="min-h-screen bg-void font-body text-ink">
       <slot />
    </body>
 </html>

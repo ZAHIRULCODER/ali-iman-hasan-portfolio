@@ -1,64 +1,49 @@
 ---
+import Arrow from "~/components/ui/arrow.astro";
+import SectionHeading from "~/components/ui/section-heading.astro";
+import Section from "~/components/ui/section.astro";
 import { tools, workflow } from "~/components/sections/data";
 ---
 
-<section
-   class="mx-auto w-full max-w-7xl scroll-mt-24 px-5 pt-32 lg:px-12 lg:pt-40"
-   id="system"
-   aria-labelledby="system-title"
->
-   <div
-      class="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-faint"
+<Section id="system" labelledby="system-title">
+   <SectionHeading
+      index="04"
+      eyebrow="The system"
+      id="system-title"
+      lede="Every brief moves through the same discipline. The tools change. The thinking stays accountable."
    >
-      <span class="text-acid">04</span><span class="h-px w-7 bg-acid"></span>The
-      system
-   </div>
-   <div class="mt-8 grid gap-7 lg:grid-cols-2 lg:items-end lg:gap-16">
-      <h2
-         id="system-title"
-         class="font-display text-5xl font-semibold uppercase leading-none tracking-normal text-ink sm:text-7xl lg:text-8xl"
-      >
-         A production line<br /><em class="not-italic text-acid"
-            >for better ideas.</em>
-      </h2>
-      <p class="text-lg leading-relaxed text-muted">
-         Every brief moves through the same discipline. The tools change. The
-         thinking stays accountable.
-      </p>
-   </div>
+      A production line<br /><span class="text-accent">for better ideas.</span>
+   </SectionHeading>
+
    <div
-      class="mt-14 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:mt-20 lg:grid-cols-4"
+      class="mt-block grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:grid-cols-4"
    >
       {
          workflow.map((item) => (
-            <article class="h-full border-b border-r border-line p-5 transition-colors hover:bg-void-soft lg:p-6">
-               <div class="font-mono text-xs text-acid">
-                  <span>{item.step}</span>
+            <article class="group flex h-full flex-col justify-between gap-block border-b border-r border-line p-5 transition-colors hover:bg-surface lg:p-6">
+               <span class="label text-accent">{item.step}</span>
+               <div>
+                  <h3 class="text-display-sm text-ink">{item.title}</h3>
+                  <p class="mt-3 text-muted">{item.body}</p>
                </div>
-               <h3 class="mt-12 font-display text-3xl font-semibold uppercase leading-tight text-ink lg:mt-24 lg:text-4xl">
-                  {item.title}
-               </h3>
-               <p class="mt-4 text-sm leading-relaxed text-muted">
-                  {item.body}
-               </p>
             </article>
          ))
       }
    </div>
+
    <div
-      class="mt-9 flex flex-col gap-4 border-t border-line-soft pt-5 font-mono text-xs uppercase tracking-widest text-faint lg:flex-row lg:items-start"
+      class="mt-stack flex flex-col gap-4 border-t border-line-soft pt-5 lg:flex-row"
    >
-      <span class="lg:w-48">Current toolchain</span><div
-         class="flex flex-wrap gap-x-5 gap-y-2 text-muted"
-      >
+      <span class="label shrink-0 text-faint lg:w-48">Current toolchain</span>
+      <ul class="label flex flex-wrap gap-x-5 gap-y-2 text-muted">
          {
             tools.map((tool) => (
-               <span>
-                  <span class="mr-2 text-acid">↗</span>
+               <li class="flex items-center gap-2">
+                  <Arrow class="text-accent" />
                   {tool.name}
-               </span>
+               </li>
             ))
          }
-      </div>
+      </ul>
    </div>
-</section>
+</Section>

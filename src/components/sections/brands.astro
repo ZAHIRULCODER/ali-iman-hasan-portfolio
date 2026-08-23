@@ -1,113 +1,42 @@
 ---
 import { Image } from "astro:assets";
+import Marquee from "~/components/ui/marquee.astro";
 import { brands } from "~/components/sections/data";
 
 const half = Math.ceil(brands.length / 2);
 const rows = [brands.slice(0, half), brands.slice(half)];
 ---
 
-<section
-   class="mx-auto w-full max-w-7xl py-12 lg:py-16"
-   aria-label="Brands worked with"
->
-   <div
-      class="flex items-center gap-2 px-5 font-mono text-xs uppercase tracking-widest text-faint lg:px-12"
-   >
-      <span class="text-acid">●</span>Brands in the room
-   </div>
+<section class="shell py-block" aria-label="Brands worked with">
+   <p class="label flex items-center gap-3 text-faint">
+      <span class="size-1.5 shrink-0 bg-accent"></span>Brands in the room
+   </p>
 
-   <div class="marquee mt-7 space-y-4 lg:mt-9 lg:space-y-5">
+   <div class="mt-stack space-y-4">
       {
-         rows.map((row, index) => (
-            <div class="marquee-row" data-reverse={index === 1 ? "true" : null}>
-               <ul class="marquee-track" style={`--duration:${72 + index * 16}s`}>
-                  {[0, 1].map((copy) =>
-                     row.map((brand) => (
-                        <li
-                           class="group aspect-3/2 w-56 shrink-0 overflow-hidden border border-line-soft bg-ink transition-colors duration-300 hover:border-acid sm:w-72"
-                           aria-hidden={copy === 1 ? "true" : null}
-                        >
-                           <Image
-                              src={brand.logo}
-                              alt={copy === 1 ? "" : `${brand.name} logo`}
-                              width={432}
-                              height={288}
-                              densities={[1, 2]}
-                              loading="lazy"
-                              decoding="async"
-                              class="h-full w-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
-                           />
-                        </li>
-                     )),
-                  )}
-               </ul>
-            </div>
+         rows.map((row, rowIndex) => (
+            <Marquee duration={72 + rowIndex * 16} reverse={rowIndex === 1}>
+               {[0, 1].map((copy) =>
+                  row.map((brand) => (
+                     <div
+                        class="group aspect-3/2 w-56 shrink-0 overflow-hidden border border-line-soft bg-ink transition-colors hover:border-accent sm:w-64"
+                        aria-hidden={copy === 1 ? "true" : null}
+                     >
+                        <Image
+                           src={brand.logo}
+                           alt={copy === 1 ? "" : `${brand.name} logo`}
+                           width={432}
+                           height={288}
+                           densities={[1, 2]}
+                           loading="lazy"
+                           decoding="async"
+                           class="h-full w-full object-contain mix-blend-multiply transition-transform duration-slow group-hover:scale-105"
+                        />
+                     </div>
+                  )),
+               )}
+            </Marquee>
          ))
       }
    </div>
 </section>
-
-<style>
-   .marquee {
-      -webkit-mask-image: linear-gradient(
-         to right,
-         transparent,
-         #000 8%,
-         #000 92%,
-         transparent
-      );
-      mask-image: linear-gradient(
-         to right,
-         transparent,
-         #000 8%,
-         #000 92%,
-         transparent
-      );
-   }
-
-   .marquee-row {
-      overflow: hidden;
-   }
-
-   .marquee-track {
-      --gap: 0.75rem;
-      display: flex;
-      width: max-content;
-      gap: var(--gap);
-      padding-inline: calc(var(--gap) / 2);
-      animation: marquee-scroll var(--duration, 44s) linear infinite;
-   }
-
-   .marquee-row[data-reverse] .marquee-track {
-      animation-direction: reverse;
-   }
-
-   .marquee:hover .marquee-track {
-      animation-play-state: paused;
-   }
-
-   @keyframes marquee-scroll {
-      from {
-         transform: translate3d(0, 0, 0);
-      }
-      to {
-         transform: translate3d(calc(-50% - var(--gap) / 2), 0, 0);
-      }
-   }
-
-   @media (min-width: 640px) {
-      .marquee-track {
-         --gap: 1rem;
-      }
-   }
-
-   @media (prefers-reduced-motion: reduce) {
-      .marquee-row {
-         overflow-x: auto;
-      }
-
-      .marquee-track {
-         animation: none;
-      }
-   }
-</style>

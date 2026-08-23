@@ -1,25 +1,40 @@
+---
+const links = [
+   { href: "#work", label: "Work" },
+   { href: "#system", label: "System" },
+   { href: "#contact", label: "Contact" },
+];
+---
+
 <header
-   class="sticky top-0 z-20 mx-auto flex min-h-16 w-full max-w-7xl items-center justify-between gap-4 border-x border-b border-line bg-void/90 px-5 backdrop-blur-xl lg:min-h-20 lg:px-12"
+   class="sticky top-0 z-30 border-b border-line bg-void/80 backdrop-blur-xl"
 >
-   <a
-      class="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest"
-      href="#top"
-      aria-label="Ali Iman Hassan home"
-   >
-      <span
-         class="grid size-7 place-items-center border border-acid text-xs tracking-tighter text-acid"
-         >AI</span
+   <div class="shell flex min-h-16 items-center justify-between gap-4 lg:min-h-20">
+      <a
+         class="label group inline-flex items-center gap-3 text-ink"
+         href="#top"
+         aria-label="Ali Iman Hassan home"
       >
-      <span class="hidden whitespace-nowrap text-ink sm:inline"
-         >Ali Iman Hassan</span
+         <span
+            class="grid size-7 place-items-center border border-accent text-accent transition-colors group-hover:bg-accent group-hover:text-void"
+            >AI</span
+         >
+         <span class="hidden whitespace-nowrap sm:inline">Ali Iman Hassan</span>
+      </a>
+      <nav
+         class="label flex items-center gap-5 text-muted sm:gap-8"
+         aria-label="Primary navigation"
       >
-   </a>
-   <nav
-      class="ml-auto flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted sm:gap-6"
-      aria-label="Primary navigation"
-   >
-      <a class="transition-colors hover:text-acid" href="#work">Work</a>
-      <a class="transition-colors hover:text-acid" href="#system">System</a>
-      <a class="transition-colors hover:text-acid" href="#contact">Contact</a>
-   </nav>
+         {
+            links.map((link) => (
+               <a
+                  class="relative py-1 transition-colors hover:text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-accent after:transition-transform hover:after:scale-x-100"
+                  href={link.href}
+               >
+                  {link.label}
+               </a>
+            ))
+         }
+      </nav>
+   </div>
 </header>

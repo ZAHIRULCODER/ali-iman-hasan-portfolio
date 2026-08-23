@@ -1,60 +1,40 @@
 ---
 import { Image } from "astro:assets";
+import Eyebrow from "~/components/ui/eyebrow.astro";
+import Marquee from "~/components/ui/marquee.astro";
+import SectionHeading from "~/components/ui/section-heading.astro";
+import Section from "~/components/ui/section.astro";
 import { featuredFilms, selectedWork } from "~/components/sections/data";
-
-const trackItems = [...selectedWork, ...selectedWork];
 ---
 
-<section
-   class="mx-auto w-full max-w-7xl scroll-mt-24 px-5 pt-32 lg:px-12 lg:pt-40"
-   id="work"
-   aria-labelledby="work-title"
->
-   <div
-      class="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-faint"
+<Section id="work" labelledby="work-title">
+   <SectionHeading
+      index="03"
+      eyebrow="Selected work"
+      id="work-title"
+      lede="Campaigns, content systems, films, and visual worlds — built for brands that need more than output."
    >
-      <span class="text-acid">03</span><span class="h-px w-7 bg-acid"
-      ></span>Selected work
-   </div>
-   <div class="mt-8 grid gap-7 lg:grid-cols-2 lg:items-end lg:gap-16">
-      <h2
-         id="work-title"
-         class="font-display text-5xl font-semibold uppercase leading-none tracking-normal text-ink sm:text-7xl lg:text-8xl"
-      >
-         Work with<br /><em class="not-italic text-acid">a point of view.</em>
-      </h2>
-      <p class="text-lg leading-relaxed text-muted">
-         Campaigns, content systems, films, and visual worlds — built for brands
-         that need more than output.
-      </p>
-   </div>
-   <div class="mt-14 lg:mt-20">
-      <div
-         class="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-faint"
-      >
-         <span class="whitespace-nowrap text-acid">Featured films</span><span
-            class="h-px w-7 bg-acid"
-         ></span>
-         Watch the work in motion
-      </div>
-      <div class="mt-5 grid gap-8 lg:grid-cols-2 lg:gap-10">
+      Work with<br /><span class="text-accent">a point of view.</span>
+   </SectionHeading>
+
+   <div class="mt-block">
+      <Eyebrow>Featured films — watch the work in motion</Eyebrow>
+      <div class="mt-stack grid gap-stack lg:grid-cols-2">
          {
             featuredFilms.map((film) => (
                <figure>
-                  <div class="overflow-hidden border border-line bg-void-soft">
-                     <div class="aspect-video">
-                        <iframe
-                           class="h-full w-full"
-                           src={`https://www.youtube-nocookie.com/embed/${film.id}?rel=0`}
-                           title={`${film.title} — ${film.client}`}
-                           loading="lazy"
-                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                           allowfullscreen
-                        />
-                     </div>
+                  <div class="aspect-video overflow-hidden border border-line bg-surface">
+                     <iframe
+                        class="h-full w-full"
+                        src={`https://www.youtube-nocookie.com/embed/${film.id}?rel=0`}
+                        title={`${film.title} — ${film.client}`}
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                     />
                   </div>
-                  <figcaption class="mt-4 flex items-center justify-between gap-4 border-t border-line pt-3 font-mono text-xs uppercase tracking-widest">
-                     <span class="text-acid">{film.client}</span>
+                  <figcaption class="label mt-4 flex items-center justify-between gap-4 border-t border-line pt-3">
+                     <span class="text-accent">{film.client}</span>
                      <span class="text-faint">{film.note}</span>
                   </figcaption>
                </figure>
@@ -62,13 +42,10 @@ const trackItems = [...selectedWork, ...selectedWork];
          }
       </div>
    </div>
-   <div
-      class="portfolio-slider relative mt-14 overflow-hidden lg:mt-20"
-      aria-label="Selected work carousel"
-   >
-      <div class="portfolio-track flex w-max gap-8 pb-4">
+   <div class="mt-block" aria-label="Selected work carousel">
+      <Marquee duration={58} gap="2rem" fade="4%" class="pb-4">
          {
-            trackItems.map((project, index) => {
+            [...selectedWork, ...selectedWork].map((project, index) => {
                const isClone = index >= selectedWork.length;
                const projectNumber = String(
                   (index % selectedWork.length) + 1,
@@ -76,40 +53,39 @@ const trackItems = [...selectedWork, ...selectedWork];
 
                return (
                   <article
-                     class="portfolio-slide w-[min(78vw,34rem)] shrink-0 sm:w-[min(52vw,38rem)]"
+                     class="w-[min(78vw,32rem)] shrink-0"
                      aria-hidden={isClone ? "true" : undefined}
                   >
                      <a
-                        class="group relative block aspect-[4/3] overflow-hidden bg-void-soft"
+                        class="group relative block aspect-4/3 overflow-hidden border border-line bg-surface"
                         href="#contact"
-                        aria-label={
-                           "Talk about " + project.client + ": " + project.title
-                        }
+                        aria-label={`Talk about ${project.client}: ${project.title}`}
                         tabindex={isClone ? -1 : undefined}
                      >
                         <Image
-                           class="h-full w-full object-contain saturate-75 transition duration-700 ease-out group-hover:saturate-100"
+                           class="h-full w-full object-contain saturate-[0.8] transition duration-slow group-hover:scale-[1.03] group-hover:saturate-100"
                            src={project.image}
                            loading="lazy"
                            decoding="async"
                            alt={project.alt}
                         />
-                        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-void/80" />
-                    </a>
+                        <div
+                           class="pointer-events-none absolute inset-0 bg-linear-to-t from-void/80 to-transparent"
+                           aria-hidden="true"
+                        />
+                     </a>
                      <div class="mt-5 border-t border-line pt-3">
-                        <div class="flex items-center justify-between font-mono text-xs uppercase tracking-widest text-acid">
+                        <div class="label flex items-center justify-between text-accent">
                            <span>{project.client}</span>
                            <span class="text-faint">{projectNumber}</span>
                         </div>
-                        <h3 class="mt-3 font-display text-3xl font-semibold uppercase leading-tight tracking-normal text-ink lg:text-5xl">
+                        <h3 class="mt-3 text-display-md text-ink">
                            {project.title}
                         </h3>
-                        <p class="mt-3 text-sm leading-relaxed text-muted">
-                           {project.description}
-                        </p>
-                        <div class="mt-4 flex flex-wrap gap-2 font-mono text-xs uppercase tracking-wide text-faint">
+                        <p class="mt-3 text-muted">{project.description}</p>
+                        <div class="label mt-4 flex flex-wrap gap-2 text-faint">
                            {project.tags.map((tag) => (
-                              <span class="border border-line px-2 py-1.5">
+                              <span class="border border-line px-2.5 py-1.5">
                                  {tag}
                               </span>
                            ))}
@@ -119,50 +95,6 @@ const trackItems = [...selectedWork, ...selectedWork];
                );
             })
          }
-      </div>
+      </Marquee>
    </div>
-</section>
-
-<style>
-   .portfolio-slider {
-      -webkit-mask-image: linear-gradient(
-         to right,
-         transparent,
-         black 5%,
-         black 95%,
-         transparent
-      );
-      mask-image: linear-gradient(
-         to right,
-         transparent,
-         black 5%,
-         black 95%,
-         transparent
-      );
-   }
-
-   .portfolio-track {
-      animation: portfolio-marquee 58s linear infinite;
-   }
-
-   .portfolio-slider:hover .portfolio-track,
-   .portfolio-slider:focus-within .portfolio-track {
-      animation-play-state: paused;
-   }
-
-   @keyframes portfolio-marquee {
-      from {
-         transform: translateX(0);
-      }
-
-      to {
-         transform: translateX(calc(-50% - 1rem));
-      }
-   }
-
-   @media (prefers-reduced-motion: reduce) {
-      .portfolio-track {
-         animation: none;
-      }
-   }
-</style>
+</Section>

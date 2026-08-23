@@ -1,46 +1,56 @@
-<footer
-   class="mx-auto w-full max-w-7xl scroll-mt-24 px-5 pb-8 pt-32 lg:px-12 lg:pt-40"
-   id="contact"
->
-   <div>
-      <div
-         class="flex flex-col justify-between gap-4 font-mono text-xs uppercase tracking-widest text-faint sm:flex-row sm:items-center"
-      >
-         <div class="flex items-center gap-3">
-            <span class="text-acid">06</span><span class="h-px w-7 bg-acid"
-            ></span>Let’s make something
-         </div><span class="inline-flex items-center gap-2 text-acid"
-            ><i class="size-2 rounded-full bg-acid"></i>Open to the right brief</span>
-      </div>
-      <div class="py-20 sm:py-28">
-         <h2
-            class="font-display text-6xl font-semibold uppercase leading-none tracking-normal text-ink sm:text-8xl lg:text-8xl"
-         >
-            Have a brief<br /><em class="not-italic text-acid"
-               >with a pulse?</em>
-         </h2>
-         <a
-            class="mt-8 inline-flex max-w-full items-start gap-3 border-b border-acid pb-2 text-lg text-ink transition-colors hover:text-acid sm:mt-11 sm:text-2xl lg:text-3xl"
-            href="mailto:aliimanhassan9874@gmail.com"
-            >aliimanhassan9874@gmail.com <span
-               class="text-base text-acid sm:text-xl">↗</span
-            ></a
-         >
-         <div
-            class="mt-4 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-widest text-muted sm:text-sm"
-         >
-            <a
-               class="transition-colors hover:text-acid"
-               href="tel:+919874020939">+91 98740 20939</a
-            ><a
-               class="transition-colors hover:text-acid"
-               href="tel:+917003228236">+91 70032 28236</a>
-         </div>
-      </div>
-      <div
-         class="flex flex-col items-start gap-4 border-t border-line pt-5 font-mono text-xs uppercase leading-relaxed tracking-widest text-faint sm:flex-row sm:items-end sm:justify-between sm:text-sm"
-      >
-         <span>Ali Iman Hassan / AI creative portfolio</span><span>© 2026</span>
-      </div>
+---
+import Arrow from "~/components/ui/arrow.astro";
+import Eyebrow from "~/components/ui/eyebrow.astro";
+import Section from "~/components/ui/section.astro";
+
+const phones = ["+91 98740 20939", "+91 70032 28236"];
+const email = "aliimanhassan9874@gmail.com";
+---
+
+<Section id="contact" as="footer" class="pb-block">
+   <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+      <Eyebrow index="06">Let’s make something</Eyebrow>
+      <span class="label inline-flex items-center gap-2 text-accent">
+         <span class="size-1.5 rounded-full bg-accent"></span>Open to the right
+         brief
+      </span>
    </div>
-</footer>
+
+   <div class="py-block">
+      <h2 class="text-display-xl">
+         Have a brief<br /><span class="text-accent">with a pulse?</span>
+      </h2>
+
+      <a
+         class="group mt-block inline-flex max-w-full items-center gap-3 border-b border-accent pb-2 text-quote text-ink transition-colors hover:text-accent"
+         href={`mailto:${email}`}
+      >
+         <span class="truncate">{email}</span>
+         <Arrow
+            class="shrink-0 text-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+         />
+      </a>
+
+      <ul class="label mt-stack flex flex-wrap gap-x-6 gap-y-2 text-muted">
+         {
+            phones.map((phone) => (
+               <li>
+                  <a
+                     class="transition-colors hover:text-accent"
+                     href={`tel:${phone.replace(/\s/g, "")}`}
+                  >
+                     {phone}
+                  </a>
+               </li>
+            ))
+         }
+      </ul>
+   </div>
+
+   <div
+      class="label flex flex-col items-start gap-3 border-t border-line pt-5 text-faint sm:flex-row sm:items-center sm:justify-between"
+   >
+      <span>Ali Iman Hassan / AI creative portfolio</span>
+      <span>© 2026</span>
+   </div>
+</Section>

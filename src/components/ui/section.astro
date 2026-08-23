@@ -1,0 +1,31 @@
+---
+// Every section shares one container and one vertical rhythm. `flush` opts out
+// of the top padding for the full-bleed strips (brands, stats) that sit
+// directly against their neighbours.
+interface Props {
+   id?: string;
+   label?: string;
+   labelledby?: string;
+   as?: "section" | "footer";
+   flush?: boolean;
+   class?: string;
+}
+
+const {
+   id,
+   label,
+   labelledby,
+   as: Tag = "section",
+   flush = false,
+   class: className = "",
+}: Props = Astro.props;
+---
+
+<Tag
+   id={id}
+   class:list={["shell", flush ? "py-block" : "scroll-mt-24 pt-section", className]}
+   aria-label={label}
+   aria-labelledby={labelledby}
+>
+   <slot />
+</Tag>
