@@ -1,0 +1,67 @@
+---
+import { tools, workflow } from "~/components/sections/data";
+---
+
+<section
+   class="mx-auto w-full max-w-7xl scroll-mt-24 px-5 pt-32 lg:px-12 lg:pt-40"
+   id="system"
+   aria-labelledby="system-title"
+>
+   <div
+      class="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-faint"
+   >
+      <span class="text-acid">04</span><span class="h-px w-7 bg-acid"></span>The
+      system
+   </div>
+   <div class="mt-8 grid gap-7 lg:grid-cols-2 lg:items-end lg:gap-16">
+      <h2
+         id="system-title"
+         class="font-display text-6xl font-semibold uppercase leading-none tracking-normal text-ink sm:text-7xl lg:text-8xl"
+      >
+         A production line<br /><em class="not-italic text-acid"
+            >for better ideas.</em>
+      </h2>
+      <p class="max-w-sm text-lg leading-relaxed text-muted">
+         Every brief moves through the same discipline. The tools change. The
+         thinking stays accountable.
+      </p>
+   </div>
+   <div
+      class="mt-14 grid grid-cols-1 border-l border-t border-line sm:grid-cols-2 lg:mt-20 lg:grid-cols-4"
+   >
+      {
+         workflow.map((item) => (
+            <article class="h-full border-b border-r border-line p-5 transition-colors hover:bg-void-soft lg:p-6">
+               <div class="flex justify-between font-mono text-xs text-acid">
+                  <>
+                     <span>{item.step}</span>
+                     <span class="text-base text-faint">↗</span>
+                  </>
+               </div>
+               <h3 class="mt-12 font-display text-3xl font-semibold uppercase leading-tight text-ink lg:mt-24 lg:text-4xl">
+                  {item.title}
+               </h3>
+               <p class="mt-4 text-sm leading-relaxed text-muted">
+                  {item.body}
+               </p>
+            </article>
+         ))
+      }
+   </div>
+   <div
+      class="mt-9 flex flex-col gap-4 border-t border-line-soft pt-5 font-mono text-xs uppercase tracking-widest text-faint lg:flex-row lg:items-start"
+   >
+      <span class="lg:w-48">Current toolchain</span><div
+         class="flex flex-wrap gap-x-5 gap-y-2 text-muted"
+      >
+         {
+            tools.map((tool) => (
+               <span>
+                  <span class="mr-2 text-acid">↗</span>
+                  {tool}
+               </span>
+            ))
+         }
+      </div>
+   </div>
+</section>
