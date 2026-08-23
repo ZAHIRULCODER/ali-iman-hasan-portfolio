@@ -26,6 +26,14 @@ import srmbRealEdge from "~/assets/brands/srmb-real-edge.png";
 import srmbRealFabrica from "~/assets/brands/srmb-real-fabrica.png";
 import viceroy from "~/assets/brands/viceroy.png";
 import wildWaves from "~/assets/brands/wild-waves.png";
+import adobeTool from "~/assets/tools/adobe.jpg";
+import chatgptTool from "~/assets/tools/chatgpt.jpg";
+import elevenlabsTool from "~/assets/tools/elevenlabs.jpg";
+import flowAiTool from "~/assets/tools/flow-ai.jpg";
+import geminiTool from "~/assets/tools/gemini.jpg";
+import googleAiStudioTool from "~/assets/tools/google-ai-studio.jpg";
+import midjourneyTool from "~/assets/tools/midjourney.jpg";
+import veedTool from "~/assets/tools/veed-io.jpg";
 import avatar from "~/assets/ali-iman-hasan-avatar.jpeg";
 
 export const heroImage = avatar;
@@ -134,4 +142,15 @@ export const brands = [
 	{ name: "Phasemount", logo: phasemount },
 	{ name: "Regler", logo: regler },
 	{ name: "Viceroy", logo: viceroy },
+];
+
+export const toolLogos = [
+	{ name: "ChatGPT", logo: chatgptTool },
+	{ name: "Gemini", logo: geminiTool },
+	{ name: "Google AI Studio", logo: googleAiStudioTool },
+	{ name: "Midjourney", logo: midjourneyTool },
+	{ name: "Flow AI", logo: flowAiTool },
+	{ name: "VEED.IO", logo: veedTool },
+	{ name: "ElevenLabs", logo: elevenlabsTool },
+	{ name: "Adobe", logo: adobeTool },
 ];

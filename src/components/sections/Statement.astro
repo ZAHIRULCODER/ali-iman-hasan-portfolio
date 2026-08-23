@@ -1,3 +1,8 @@
+---
+import { Image } from "astro:assets";
+import { toolLogos } from "~/components/sections/data";
+---
+
 <section
    class="mx-auto w-full max-w-7xl scroll-mt-24 px-5 pt-32 lg:px-12 lg:pt-40"
    id="statement"
@@ -17,7 +22,28 @@
          AI is the multiplier.<br /><span class="text-muted"
             >Judgement is the job.</span>
       </h2>
-      <div class="max-w-sm pb-1">
+      <div class="pb-1">
+         <ul
+            class="mb-11 grid grid-cols-2 border-l border-t border-line-soft sm:grid-cols-4"
+            aria-label="Tools I work with"
+         >
+            {
+               toolLogos.map((tool) => (
+                  <li class="group flex aspect-3/2 items-center justify-center border-b border-r border-line-soft px-4 py-3 transition-colors duration-300 hover:bg-void-soft">
+                     <Image
+                        src={tool.logo}
+                        alt={`${tool.name} logo`}
+                        width={320}
+                        height={229}
+                        densities={[1, 2]}
+                        loading="lazy"
+                        decoding="async"
+                        class="tool-logo h-full w-full scale-110 object-contain opacity-75 transition-all duration-500 ease-out group-hover:scale-115 group-hover:opacity-100"
+                     />
+                  </li>
+               ))
+            }
+         </ul>
          <p class="text-lg leading-relaxed text-muted">
             The tool can give me ten directions. My work is knowing which one
             has a pulse, then carrying it all the way from the first line of
@@ -30,3 +56,13 @@
       </div>
    </div>
 </section>
+
+<style>
+   /* Source logos are dark marks on a white background. Grayscale + invert
+      flips them to white on black, and screen blending drops the black so the
+      mark sits directly on the page instead of inside a bright white card. */
+   .tool-logo {
+      filter: grayscale(1) invert(1) contrast(1.1);
+      mix-blend-mode: screen;
+   }
+</style>
