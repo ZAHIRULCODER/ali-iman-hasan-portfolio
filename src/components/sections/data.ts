@@ -29,14 +29,6 @@ export const selectedWork = [
 		alt: "Prabhuji Rakhi film storyboard with a brother and sister",
 	},
 	{
-		image: portfolio05,
-		client: "MediSeba",
-		title: "A feed is a layout.",
-		description: "An always-on social system designed as one composition instead of a pile of disconnected posts.",
-		tags: ["Content system", "Social"],
-		alt: "MediSeba Instagram feed concepts and social media layouts",
-	},
-	{
 		image: portfolio09,
 		client: "SRMB",
 		title: "Strength, frame by frame.",
@@ -77,13 +69,12 @@ export const selectedWork = [
 		alt: "Food and hospitality social media content grid",
 	},
 	{
-		image: portfolio22,
-		client: "Creative lab",
-		title: "The first pass is data.",
-		description: "Generation one is where the search starts. Direction is the distance between the first frame and the final one.",
-		tags: ["Iteration", "Image generation"],
-		alt: "AI image generation frame comparison for a cinematic concept",
-		wide: true,
+		image: portfolio05,
+		client: "MediSeba",
+		title: "A feed is a layout.",
+		description: "An always-on social system designed as one composition instead of a pile of disconnected posts.",
+		tags: ["Content system", "Social"],
+		alt: "MediSeba Instagram feed concepts and social media layouts",
 	},
 ];
 
@@ -109,4 +100,3 @@ export const principles = [
 ];
 
 export const tools = ["ChatGPT", "Gemini", "Midjourney", "Canva", "Flow AI", "VEED.IO", "ElevenLabs", "Meta Business Suite"];
-

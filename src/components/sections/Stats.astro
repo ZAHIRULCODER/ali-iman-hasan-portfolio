@@ -2,12 +2,25 @@
 import { stats } from "~/components/sections/data";
 ---
 
-<section class="mx-auto grid w-full max-w-7xl grid-cols-2 border-y border-line px-5 lg:grid-cols-5 lg:px-12" aria-label="Career highlights">
-	<div class="col-span-2 flex items-start gap-2 px-0 py-4 font-mono text-xs uppercase tracking-widest text-faint lg:col-span-1 lg:min-h-32 lg:p-6"><span class="text-acid">●</span>Selected proof</div>
-	{stats.map((stat) => (
-		<div class="flex min-h-24 flex-col justify-between border-t border-line px-3 py-5 sm:px-5 lg:min-h-32 lg:border-l lg:border-t-0 lg:p-6">
-			<strong class="font-display text-5xl font-normal leading-none text-ink sm:text-6xl">{stat.value}</strong>
-			<span class="font-mono text-xs uppercase tracking-wide text-muted">{stat.label}</span>
-		</div>
-	))}
+<section
+   class="mx-auto grid w-full max-w-7xl grid-cols-2 border-y border-line px-5 lg:grid-cols-5 lg:px-12"
+   aria-label="Career highlights"
+>
+   <div
+      class="col-span-2 flex items-start gap-2 px-0 py-4 font-mono text-xs uppercase tracking-widest text-faint lg:col-span-1 lg:min-h-32 lg:p-6"
+   >
+      <span class="text-acid">●</span>Selected proof
+   </div>
+   {
+      stats.map((stat) => (
+         <div class="flex min-h-24 flex-col justify-between border-t border-line px-3 py-5 sm:px-5 lg:min-h-32 lg:border-l lg:border-t-0 lg:p-6">
+            <strong class="font-display text-5xl font-normal leading-none text-ink sm:text-6xl">
+               {stat.value}
+            </strong>
+            <span class="font-mono text-xs uppercase tracking-wide text-muted">
+               {stat.label}
+            </span>
+         </div>
+      ))
+   }
 </section>

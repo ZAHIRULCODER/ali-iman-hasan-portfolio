@@ -2,30 +2,32 @@
 import "../styles/global.css";
 
 interface Props {
-	title?: string;
-	description?: string;
+   title?: string;
+   description?: string;
 }
 
 const {
-	title = "Ali Iman Hassan — AI Creative Portfolio",
-	description = "Ali Iman Hassan — AI strategist, content manager, and AI filmmaker portfolio.",
+   title = "Ali Iman Hassan — AI Creative Portfolio",
+   description = "Ali Iman Hassan — AI strategist, content manager, and AI filmmaker portfolio.",
 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth bg-void">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content={description} />
-		<meta name="theme-color" content="#0b0c0c" />
-		<meta name="color-scheme" content="dark" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="min-h-screen bg-void font-body text-ink selection:bg-acid selection:text-void">
-		<slot />
-	</body>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content={description} />
+      <meta name="theme-color" content="#0b0c0c" />
+      <meta name="color-scheme" content="dark" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="icon" href="/favicon.ico" />
+      <meta name="generator" content={Astro.generator} />
+      <title>{title}</title>
+   </head>
+   <body
+      class="min-h-screen bg-void font-body text-ink selection:bg-acid selection:text-void"
+   >
+      <slot />
+   </body>
 </html>
