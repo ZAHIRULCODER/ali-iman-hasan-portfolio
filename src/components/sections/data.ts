@@ -1,14 +1,13 @@
 import portfolio01 from "~/assets/portfolio/portfolio-01.jpg";
 import portfolio02 from "~/assets/portfolio/portfolio-02.jpg";
-import portfolio05 from "~/assets/portfolio/portfolio-05.jpg";
 import portfolio09 from "~/assets/portfolio/portfolio-09.jpg";
 import portfolio10 from "~/assets/portfolio/portfolio-10.jpg";
 import portfolio12 from "~/assets/portfolio/portfolio-12.jpg";
 import portfolio15 from "~/assets/portfolio/portfolio-15.jpg";
 import portfolio17 from "~/assets/portfolio/portfolio-17.jpg";
-import portfolio22 from "~/assets/portfolio/portfolio-22.jpg";
+import avatar from "~/assets/ali-iman-hasan-avatar.jpeg";
 
-export const heroImage = portfolio22;
+export const heroImage = avatar;
 
 export const selectedWork = [
 	{
@@ -68,14 +67,6 @@ export const selectedWork = [
 		tags: ["Content management", "Design"],
 		alt: "Food and hospitality social media content grid",
 	},
-	{
-		image: portfolio05,
-		client: "MediSeba",
-		title: "A feed is a layout.",
-		description: "An always-on social system designed as one composition instead of a pile of disconnected posts.",
-		tags: ["Content system", "Social"],
-		alt: "MediSeba Instagram feed concepts and social media layouts",
-	},
 ];
 
 export const stats = [
@@ -99,4 +90,4 @@ export const principles = [
 	"Leave room for the work to surprise you.",
 ];
 
-export const tools = ["ChatGPT", "Gemini", "Midjourney", "Canva", "Flow AI", "VEED.IO", "ElevenLabs", "Meta Business Suite"];
+export const tools = ["ChatGPT", "Gemini", "Midjourney", "Canva", "Flow AI", "VEED.IO", "ElevenLabs", "Adobe Photoshop"];
