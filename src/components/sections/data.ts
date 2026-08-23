@@ -17,7 +17,6 @@ export const selectedWork = [
 		description: "A scene-by-scene visual and prompt breakdown for Rakshak — from a Hindi script to a filmable visual world.",
 		tags: ["AI film", "Creative direction"],
 		alt: "Visual and AI prompt breakdown for the MP Birla Cement Rakshak film",
-		wide: true,
 	},
 	{
 		image: portfolio02,

@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { selectedWork } from "~/components/sections/data";
+
+const trackItems = [...selectedWork, ...selectedWork];
 ---
 
 <section
@@ -27,60 +29,109 @@ import { selectedWork } from "~/components/sections/data";
       </p>
    </div>
    <div
-      class="mt-14 grid gap-16 md:grid-cols-2 md:gap-x-8 md:gap-y-20 lg:mt-20 lg:gap-x-12 lg:gap-y-24"
+      class="portfolio-slider relative mt-14 overflow-hidden lg:mt-20"
+      aria-label="Selected work carousel"
    >
-      {
-         selectedWork.map((project, index) => (
-            <article class:list={[project.wide ? "md:col-span-2" : ""]}>
-               <a
-                  class:list={[
-                     "group relative block overflow-hidden bg-void-soft",
-                     project.wide
-                        ? "aspect-video"
-                        : "aspect-square md:aspect-video",
-                  ]}
-                  href="#contact"
-                  aria-label={
-                     "Talk about " + project.client + ": " + project.title
-                  }
-               >
-                  <Image
-                     class="h-full w-full object-cover saturate-75 transition duration-700 ease-out group-hover:scale-105 group-hover:saturate-100"
-                     src={project.image}
-                     loading="lazy"
-                     decoding="async"
-                     alt={project.alt}
-                  />
-                  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-void/80" />
-                  <span class="absolute bottom-4 right-4 z-10 inline-flex translate-y-2 items-center gap-2 font-mono text-xs uppercase tracking-widest text-ink opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
-                     View case <span class="text-base">↗</span>
-                  </span>
-               </a>
-               <div class="pt-4">
-                  <div class="flex justify-between font-mono text-xs uppercase tracking-widest text-acid">
-                     <>
-                        <span>{project.client}</span>
-                        <span class="text-faint">
-                           {String(index + 1).padStart(2, "0")}
+      <div class="portfolio-track flex w-max gap-8 pb-4">
+         {
+            trackItems.map((project, index) => {
+               const isClone = index >= selectedWork.length;
+               const projectNumber = String(
+                  (index % selectedWork.length) + 1,
+               ).padStart(2, "0");
+
+               return (
+                  <article
+                     class="portfolio-slide w-[min(78vw,34rem)] shrink-0 sm:w-[min(52vw,38rem)]"
+                     aria-hidden={isClone ? "true" : undefined}
+                  >
+                     <a
+                        class="group relative block aspect-[4/3] overflow-hidden bg-void-soft"
+                        href="#contact"
+                        aria-label={
+                           "Talk about " + project.client + ": " + project.title
+                        }
+                        tabindex={isClone ? -1 : undefined}
+                     >
+                        <Image
+                           class="h-full w-full object-cover saturate-75 transition duration-700 ease-out group-hover:scale-105 group-hover:saturate-100"
+                           src={project.image}
+                           loading="lazy"
+                           decoding="async"
+                           alt={project.alt}
+                        />
+                        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-void/80" />
+                        <span class="absolute bottom-4 right-4 z-10 inline-flex translate-y-2 items-center gap-2 font-mono text-xs uppercase tracking-widest text-ink opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
+                           View case <span class="text-base">↗</span>
                         </span>
-                     </>
-                  </div>
-                  <h3 class="mt-3 max-w-2xl font-display text-3xl font-semibold uppercase leading-tight tracking-normal text-ink lg:text-5xl">
-                     {project.title}
-                  </h3>
-                  <p class="mt-3 max-w-lg text-sm leading-relaxed text-muted">
-                     {project.description}
-                  </p>
-                  <div class="mt-4 flex flex-wrap gap-2 font-mono text-xs uppercase tracking-wide text-faint">
-                     {project.tags.map((tag) => (
-                        <span class="border border-line px-2 py-1.5">
-                           {tag}
-                        </span>
-                     ))}
-                  </div>
-               </div>
-            </article>
-         ))
-      }
+                     </a>
+                     <div class="mt-5 border-t border-line pt-3">
+                        <div class="flex items-center justify-between font-mono text-xs uppercase tracking-widest text-acid">
+                           <span>{project.client}</span>
+                           <span class="text-faint">{projectNumber}</span>
+                        </div>
+                        <h3 class="mt-3 font-display text-3xl font-semibold uppercase leading-tight tracking-normal text-ink lg:text-5xl">
+                           {project.title}
+                        </h3>
+                        <p class="mt-3 max-w-lg text-sm leading-relaxed text-muted">
+                           {project.description}
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-2 font-mono text-xs uppercase tracking-wide text-faint">
+                           {project.tags.map((tag) => (
+                              <span class="border border-line px-2 py-1.5">
+                                 {tag}
+                              </span>
+                           ))}
+                        </div>
+                     </div>
+                  </article>
+               );
+            })
+         }
+      </div>
    </div>
 </section>
+
+<style>
+   .portfolio-slider {
+      -webkit-mask-image: linear-gradient(
+         to right,
+         transparent,
+         black 5%,
+         black 95%,
+         transparent
+      );
+      mask-image: linear-gradient(
+         to right,
+         transparent,
+         black 5%,
+         black 95%,
+         transparent
+      );
+   }
+
+   .portfolio-track {
+      animation: portfolio-marquee 58s linear infinite;
+   }
+
+   .portfolio-slider:hover .portfolio-track,
+   .portfolio-slider:focus-within .portfolio-track {
+      animation-play-state: paused;
+   }
+
+   @keyframes portfolio-marquee {
+      from {
+         transform: translateX(0);
+      }
+
+      to {
+         transform: translateX(calc(-50% - 1rem));
+      }
+   }
+
+   @media (prefers-reduced-motion: reduce) {
+      .portfolio-track {
+         animation: none;
+      }
+   }
+</style>
