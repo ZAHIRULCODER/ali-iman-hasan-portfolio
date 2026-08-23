@@ -97,6 +97,21 @@ export const selectedWork = [
 	},
 ];
 
+export const featuredFilms = [
+	{
+		id: "deZOaa2DL9A",
+		client: "SRMB Steel",
+		title: "Saluting the Unsung Heroes",
+		note: "Engineers’ Day 2025",
+	},
+	{
+		id: "6IcKsJeKPyM",
+		client: "SRMB Steel",
+		title: "Building Faith, Strength & Devotion",
+		note: "Chhath Puja 2025",
+	},
+];
+
 export const stats = [
 	{ value: "31+", label: "clients handled" },
 	{ value: "73+", label: "projects shipped" },
