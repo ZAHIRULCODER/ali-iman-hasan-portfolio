@@ -5,6 +5,27 @@ import portfolio10 from "~/assets/portfolio/portfolio-10.jpg";
 import portfolio12 from "~/assets/portfolio/portfolio-12.jpg";
 import portfolio15 from "~/assets/portfolio/portfolio-15.jpg";
 import portfolio17 from "~/assets/portfolio/portfolio-17.jpg";
+import acumen from "~/assets/brands/acumen.png";
+import birlaCement from "~/assets/brands/birla-cement.png";
+import biryaniCanteen from "~/assets/brands/biryani-canteen.png";
+import cafeOffBeat from "~/assets/brands/cafe-off-beat.png";
+import fortuneHeights from "~/assets/brands/fortune-heights.png";
+import hideAway from "~/assets/brands/hide-away.png";
+import jhoreJole from "~/assets/brands/jhore-jole.png";
+import joyville from "~/assets/brands/joyville.png";
+import nature from "~/assets/brands/nature.png";
+import offBeat from "~/assets/brands/off-beat.png";
+import phasemount from "~/assets/brands/phasemount.png";
+import prabhuji from "~/assets/brands/prabhuji.png";
+import realBuild from "~/assets/brands/real-build.png";
+import regler from "~/assets/brands/regler.png";
+import scoftea from "~/assets/brands/scoftea.png";
+import srijan from "~/assets/brands/srijan.png";
+import srmb from "~/assets/brands/srmb.png";
+import srmbRealEdge from "~/assets/brands/srmb-real-edge.png";
+import srmbRealFabrica from "~/assets/brands/srmb-real-fabrica.png";
+import viceroy from "~/assets/brands/viceroy.png";
+import wildWaves from "~/assets/brands/wild-waves.png";
 import avatar from "~/assets/ali-iman-hasan-avatar.jpeg";
 
 export const heroImage = avatar;
@@ -90,3 +111,27 @@ export const principles = [
 ];
 
 export const tools = ["ChatGPT", "Gemini", "Midjourney", "Canva", "Flow AI", "VEED.IO", "ElevenLabs", "Adobe Photoshop"];
+
+export const brands = [
+	{ name: "MP Birla Cement", logo: birlaCement },
+	{ name: "SRMB", logo: srmb },
+	{ name: "SRMB Real Edge", logo: srmbRealEdge },
+	{ name: "SRMB Real Fabrica", logo: srmbRealFabrica },
+	{ name: "Prabhuji", logo: prabhuji },
+	{ name: "Real Build", logo: realBuild },
+	{ name: "Joyville", logo: joyville },
+	{ name: "Srijan", logo: srijan },
+	{ name: "Fortune Heights", logo: fortuneHeights },
+	{ name: "Acumen", logo: acumen },
+	{ name: "Coftea", logo: scoftea },
+	{ name: "Biryani Canteen", logo: biryaniCanteen },
+	{ name: "Cafe Off Beat", logo: cafeOffBeat },
+	{ name: "Off Beat", logo: offBeat },
+	{ name: "Hide Away", logo: hideAway },
+	{ name: "Jhore Jole", logo: jhoreJole },
+	{ name: "Wild Waves", logo: wildWaves },
+	{ name: "Nature", logo: nature },
+	{ name: "Phasemount", logo: phasemount },
+	{ name: "Regler", logo: regler },
+	{ name: "Viceroy", logo: viceroy },
+];
