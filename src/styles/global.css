@@ -8,9 +8,18 @@
 	--color-faint: #5e6561;
 	--color-line: rgba(242, 240, 232, 0.14);
 	--color-line-soft: rgba(242, 240, 232, 0.08);
-	--color-acid: #ff4d5a;
-	--color-ember: #ff744f;
+	--color-acid: #4da6ff;
+	--color-ember: #6d7dff;
 	--font-display: "Arial Narrow", Arial, sans-serif;
 	--font-body: Arial, "Helvetica Neue", sans-serif;
 	--font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-align: left;
 }
