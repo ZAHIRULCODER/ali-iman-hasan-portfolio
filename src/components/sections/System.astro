@@ -32,11 +32,8 @@ import { tools, workflow } from "~/components/sections/data";
       {
          workflow.map((item) => (
             <article class="h-full border-b border-r border-line p-5 transition-colors hover:bg-void-soft lg:p-6">
-               <div class="flex justify-between font-mono text-xs text-acid">
-                  <>
-                     <span>{item.step}</span>
-                     <span class="text-base text-faint">↗</span>
-                  </>
+               <div class="font-mono text-xs text-acid">
+                  <span>{item.step}</span>
                </div>
                <h3 class="mt-12 font-display text-3xl font-semibold uppercase leading-tight text-ink lg:mt-24 lg:text-4xl">
                   {item.title}
