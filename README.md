@@ -1,5 +1,3 @@
-# Ali Iman Hassan — AI Creative Portfolio
-
 An Astro-powered, dark-mode-only portfolio for Ali Iman Hassan, an AI strategist, content manager, and filmmaker. The site uses Astro components, Tailwind CSS utilities, optimized local image assets, and system font stacks with no external font requests.
 
 ## Requirements
