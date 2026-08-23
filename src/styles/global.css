@@ -10,7 +10,7 @@
 	--color-line-soft: rgba(242, 240, 232, 0.08);
 	--color-acid: #c5ff3d;
 	--color-ember: #ff744f;
-	--font-display: "Bebas Neue", Impact, sans-serif;
-	--font-body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
-	--font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+	--font-display: "Arial Narrow", Arial, sans-serif;
+	--font-body: Arial, "Helvetica Neue", sans-serif;
+	--font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 }

@@ -3,28 +3,23 @@ import { Image } from "astro:assets";
 import { heroImage } from "~/components/sections/data";
 ---
 
-<section class="relative mx-auto grid min-h-screen w-full max-w-7xl items-center gap-12 px-5 py-20 sm:py-28 lg:grid-cols-2 lg:gap-24 lg:px-16 lg:py-36" id="top" aria-labelledby="hero-title">
+<section class="relative mx-auto grid min-h-screen w-full max-w-7xl items-center gap-12 px-5 py-20 sm:py-28 lg:grid-cols-2 lg:gap-24 lg:px-12 lg:py-36" id="top" aria-labelledby="hero-title">
 	<div class="pointer-events-none absolute -right-48 -top-56 -z-10 size-96 rounded-full bg-acid/5 blur-3xl"></div>
 	<div class="pointer-events-none absolute -left-48 top-1/2 -z-10 size-96 rounded-full bg-ember/5 blur-3xl"></div>
-	<div class="relative z-10">
+	<div class="relative z-10 -translate-y-4 sm:-translate-y-8 lg:-translate-y-12">
 		<p class="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-faint lg:mb-8"><span class="text-acid">01</span><span class="h-px w-7 bg-acid"></span>Creative operator / Kolkata, India</p>
-		<h1 id="hero-title" class="font-display text-8xl uppercase leading-none tracking-normal text-ink sm:text-9xl">Ideas,<br /><em class="not-italic text-acid">with range.</em></h1>
+		<h1 id="hero-title" class="font-display text-7xl font-semibold uppercase leading-none tracking-normal text-ink sm:text-8xl lg:text-8xl">Ideas,<br /><em class="not-italic text-acid">with range.</em></h1>
 		<p class="mt-7 max-w-lg text-lg leading-relaxed text-muted sm:mt-9 sm:text-xl">I’m Ali — an AI strategist, content manager, and filmmaker building work that starts with a sharp thought and lands as something people can feel.</p>
 		<div class="mt-8 flex flex-col items-start gap-5 sm:mt-10 sm:flex-row sm:items-center sm:gap-7">
 			<a class="inline-flex items-center justify-between gap-8 bg-acid px-5 py-4 font-mono text-xs font-medium uppercase tracking-widest text-void transition hover:-translate-y-1 hover:bg-ink" href="#work">Explore selected work <span class="text-base leading-none">↘</span></a>
 			<a class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted transition-colors hover:text-acid" href="mailto:aliimanhassan9874@gmail.com">Start a conversation <span class="text-base text-acid">↗</span></a>
 		</div>
 	</div>
-	<div class="relative mt-6 aspect-square lg:mt-0" aria-label="Visual direction and AI prompt study">
-		<div class="absolute -top-6 right-0 font-mono text-xs uppercase tracking-widest text-faint">A / 01</div>
-		<div class="absolute inset-0 bottom-8 right-8 overflow-hidden border border-line bg-void-soft">
+	<div class="relative mt-6 aspect-square -translate-y-4 sm:-translate-y-8 lg:mt-0 lg:-translate-y-12" aria-label="Hero image">
+		<div class="absolute inset-0 bottom-8 overflow-hidden border border-line bg-void-soft">
 			<div class="pointer-events-none absolute inset-3 z-10 border border-white/20"></div>
 			<Image class="h-full w-full object-cover saturate-75 contrast-125" src={heroImage} loading="eager" alt="Cinematic AI-generated portrait used as a visual direction study" />
 			<div class="pointer-events-none absolute inset-0 bg-linear-to-br from-transparent to-acid/20 mix-blend-screen"></div>
-			<div class="absolute inset-x-5 bottom-4 z-20 flex justify-between gap-4 font-mono text-xs uppercase tracking-widest text-ink"><span>Creative lab</span><span>Direction / 2026</span></div>
 		</div>
-		<div class="absolute right-0 top-12 z-20 flex items-center gap-3 font-mono text-xs uppercase leading-tight tracking-widest text-muted"><span class="h-px w-14 bg-acid"></span><span>Human insight<br />+ AI range</span></div>
-		<div class="absolute bottom-0 right-0 z-20 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted"><span>Frame 01 / 03</span><span class="h-px w-8 bg-acid"></span></div>
 	</div>
 </section>
-

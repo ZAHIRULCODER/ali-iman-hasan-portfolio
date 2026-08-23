@@ -2,10 +2,10 @@
 import { principles } from "~/components/sections/data";
 ---
 
-<section class="mx-auto w-full max-w-7xl px-5 pt-32 lg:px-16 lg:pt-56" aria-labelledby="principles-title">
+<section class="mx-auto w-full max-w-7xl px-5 pt-32 lg:px-12 lg:pt-56" aria-labelledby="principles-title">
 	<div class="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-faint"><span class="text-acid">05</span><span class="h-px w-7 bg-acid"></span>Working principles</div>
 	<div class="mt-8 grid gap-8 lg:ml-24 lg:grid-cols-2 lg:gap-24">
-		<h2 id="principles-title" class="font-display text-7xl uppercase leading-none tracking-normal text-ink sm:text-8xl lg:text-9xl">Make it<br /><em class="not-italic text-acid">mean something.</em></h2>
+		<h2 id="principles-title" class="font-display text-6xl font-semibold uppercase leading-none tracking-normal text-ink sm:text-7xl lg:text-8xl">Make it<br /><em class="not-italic text-acid">mean something.</em></h2>
 		<div class="border-t border-line">
 			{principles.map((principle, index) => (
 				<div class="flex gap-4 border-b border-line py-5"><span class="w-12 shrink-0 font-mono text-xs text-acid">{String(index + 1).padStart(2, "0")}</span><p class="max-w-lg text-lg leading-relaxed text-ink sm:text-2xl">{principle}</p></div>
@@ -13,4 +13,3 @@ import { principles } from "~/components/sections/data";
 		</div>
 	</div>
 </section>
-
